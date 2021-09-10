@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build:  #giving build two options
+      context: . # context specific where our files and folders from
+      dockerfile: Dockerfile.dev #this telling the docker-compose to look for this file
+    ports: 
+      - "3000:3000" #left outside container: right inside container
+    volumes: 
+      - /app/node_modules
+      - .:/app #maping current directory (outside container) to /app (inside container)
