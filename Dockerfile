@@ -6,5 +6,9 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+
+#AWS BEANSTALK LOOKFOR THE EXPOSE INSTRCUTION
+#so here this look for and listen to port 80
+EXPOSE 80  
 COPY --from=builder /app/build /usr/share/nginx/html
 
