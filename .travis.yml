@@ -18,3 +18,15 @@ cache:
 script:
   - docker run -e CI=true raynoryip/dockertest npm run test
   
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-east-1"
+  app: "Dockertest" 
+  env: "Dockertest-env"
+  bucket_name: "elasticbeanstalk-ap-east-1-230553207982"
+  bucket_path: "dockertest"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
