@@ -8,7 +8,7 @@ node_js:
 services:
   - docker
 
-before_install
+before_install:
   - docker build -t raynoryip/DockerTest -f Dockerfile.dev . 
 
 cache:
